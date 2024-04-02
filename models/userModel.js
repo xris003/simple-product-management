@@ -32,6 +32,18 @@ const userSchema = new mongoose.Schema({
       message: "Passwords are not the same",
     },
   },
+  phoneNo: {
+    type: String,
+    length: 11,
+  },
+  userLocation: {
+    type: {
+      type: String,
+      enum: ["Point"],
+    },
+    coordinates: [Number],
+    address: String,
+  },
 });
 
 userSchema.pre("save", async function (next) {
