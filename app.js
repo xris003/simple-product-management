@@ -12,9 +12,8 @@ const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
-const driverRouter = require("./routes/driverRoutes");
-const rideRouter = require("./routes/rideRoutes");
-const passengerRouter = require("./routes/passengerRoutes");
+const userRouter = require("./routes/userRoutes");
+// const productRouter = require("./routes/productRoutes");
 
 const app = express();
 
@@ -59,9 +58,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-app.use("/api/v1/passengers", passengerRouter);
-app.use("/api/v1/drivers", driverRouter);
-app.use("/api/v1/rides", rideRouter);
+app.use("/api/v1/users", userRouter);
+// app.use("/api/v1/products", productRouter);
 //app.use('/api/v1/bookings', bookingRouter);
 
 app.all("*", (req, res, next) => {
