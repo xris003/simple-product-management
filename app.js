@@ -13,7 +13,8 @@ const cors = require("cors");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 const userRouter = require("./routes/userRoutes");
-// const productRouter = require("./routes/productRoutes");
+const productRouter = require("./routes/productRoutes");
+const commentRouter = require("./routes/commentRoutes");
 
 const app = express();
 
@@ -59,8 +60,8 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/api/v1/users", userRouter);
-// app.use("/api/v1/products", productRouter);
-//app.use('/api/v1/bookings', bookingRouter);
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/comments", commentRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
