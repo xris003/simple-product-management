@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const catchAsync = require("../utils/catchAsync");
 const User = require("./../models/userModel");
 const AppError = require("./../utils/appError");
+const axios = require("axios");
 // const sendEmail = require("./../utils/email");
 
 const signToken = (id) => {
@@ -37,8 +38,49 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  const newUser = await User.create(req.body);
-  createSendToken(newUser, 201, res);
+  // Extract the address from the request body
+  const { userLocation, ...restOfData } = req.body;
+  const { address } = userLocation;
+
+  try {
+    console.log(userLocation);
+    console.log(process.env.GOOGLE_API_KEY);
+    // Convert address to latitude and longitude using Google Maps Geocoding API
+    const geocodingResponse = await axios.get(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+        userLocation
+      )}&key=${process.env.GOOGLE_API_KEY}`
+    );
+
+    // Extract latitude and longitude from the response
+    const { results } = geocodingResponse.data;
+    const { lat, lng } = results[0].geometry.location;
+
+    // Update userLocation object with new coordinates
+    const updatedUserLocation = {
+      type: "Point",
+      coordinates: [lng, lat], // Note: Longitude comes first
+      address: address,
+    };
+
+    // Combine updated userLocation with the rest of the data
+    const updatedData = {
+      ...restOfData,
+      userLocation: updatedUserLocation,
+    };
+
+    // Create new user with updated data
+    const newUser = await User.create(updatedData);
+    createSendToken(newUser, 201, res);
+  } catch (error) {
+    // Handle error
+    console.error("Error converting address:", error);
+    // Send error response
+    res.status(400).json({
+      status: "fail",
+      message: "Error converting address to coordinates",
+    });
+  }
 });
 
 exports.login = catchAsync(async (req, res, next) => {

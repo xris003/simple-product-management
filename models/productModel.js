@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
     coordinates: [Number],
     address: String,
   },
-  owner: [
+  user: [
     {
       type: mongoose.Schema.ObjectId,
       ref: "User",
@@ -30,6 +30,13 @@ productSchema.index({ productLocation: "2dsphere" });
 productSchema.post("save", function (doc, next) {
   console.log(doc);
   next();
+});
+
+//Virtual Populate
+productSchema.virtual("comments", {
+  ref: "Comment",
+  foreignField: "product",
+  localField: "_id",
 });
 
 const Product = mongoose.model("Product", productSchema);

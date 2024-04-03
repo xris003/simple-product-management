@@ -1,0 +1,37 @@
+.upload-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 10px;
+  }
+  
+  .upload-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="file"] {
+    width: calc(100% - 12px); /* Adjust based on label width */
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .upload-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .upload-form button:hover {
+    background-color: #0056b3;
+  }
+  

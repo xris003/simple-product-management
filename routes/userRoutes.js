@@ -7,7 +7,7 @@ router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 
 // Protect all routes after this middleware
-router.use(userController.protect);
+// router.use(userController.protect);
 
 // router.patch(
 //   "/updateMe",
