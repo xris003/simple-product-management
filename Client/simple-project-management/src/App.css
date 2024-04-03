@@ -1,0 +1,188 @@
+.welcome{
+  background: hsl(225, 15%, 15%);
+  /* height: 100%;
+  width: 100%; */
+  border: 1px solid #000000;
+  justify-self: center;
+  position: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.homeNav{
+  position: relative;
+}
+
+.signIn {
+  position: absolute;
+  margin-left: 500px;
+  margin-top: 17px;
+  Width:103px;
+  Height:39px;
+  border-color:#F5C249;
+  padding: 0.5rem;
+  color:#F5C249;
+  font-size: 20px;
+  background-color:#21242D;
+  border-radius: 37px;
+}
+
+.signUp{
+  position: absolute;
+  margin-left: 650px;
+  margin-top: 17px;
+  Width:103px;
+  Height:39px;
+  border-color:#F5C249;
+  padding: 0.5rem;
+  color:#F5C249;
+  font-size: 20px;
+  background-color:#21242D;
+  border-radius: 37px;
+  
+}
+
+.signIn:hover{
+  color:#21242D;
+  background-color: #F5C249;
+  cursor: pointer;
+}
+
+.signUp:hover{
+  color:#21242D;
+  background-color: #F5C249;
+  cursor: pointer;
+}
+
+.signIn>button:active {
+  color: #0000FF;
+}
+
+.hero{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.col-1{
+  display: grid;
+  position: absolute;
+  margin-top: 141px;
+  margin-left: 36px;
+  width:697px;
+  height: 604px;
+}
+
+.tok{
+  color:antiquewhite;
+  font-size: 48px;
+  padding-right: 15%;
+  text-align: center;
+  text-shadow: 1rem;
+  text-transform: uppercase; 
+}
+
+.cols-2{
+  display: grid;
+  margin-top: 120px;
+  margin-left: 829px;
+}
+
+.email-inputs, 
+.pass-inputs,
+.name-inputs,
+.passcon-inputs,
+.phone-inputs,
+.location-input
+{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  position: relative;
+  padding: 2rem 2rem;
+}
+
+.email-inputs label,
+.pass-inputs label,
+.name-inputs label,
+.passcon-inputs label,
+.phone-inputs label,
+.location-input label
+{
+  color: #ffff;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 38px;
+  padding-left: 2rem;
+}
+
+.email-inputs input,
+.pass-inputs input,
+.name-inputs input,
+.passcon-inputs input,
+.phone-inputs input,
+.location-input input
+{
+  width: 400px;
+  height: 50px;
+  background: #21242D;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  box-sizing: border-box;
+  padding-left: 2rem;
+  font-size: 24px;
+}
+
+
+.signin{
+  /* margin-bottom: 10px;
+  margin-top: 5px;
+  Width: 10px;
+  Height:39px; */
+  border-color:#F5C249;
+  /* padding: 0.5rem; */
+  color:#F5C249;
+  font-size: 20px;
+  background-color:#21242D;
+  /* border-radius: 37px; */
+}
+
+.pass-input button{
+  display: flex;
+  flex-direction: column;
+  width: 569px;
+  height: 91px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  margin-top: 90px;
+  border: none;
+  background-color: #F5C249;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  padding-top: 1rem;
+  letter-spacing: -0.035em;
+  color: #21242D;
+  margin-bottom: 0px;
+}
+
+.pass-input button span{
+  align-self: center;
+}
+
+.acct{
+  margin-top: 0px;
+  color: white;
+  padding-left: 5rem;
+}
+
+._acct{
+  font-weight: bold;
+  color:#F5C249;
+}
